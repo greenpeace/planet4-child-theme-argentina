@@ -1,10 +1,12 @@
-<title>
-	{% if post.password_required %}
-		{{ site.name }}
+{% if post.password_required %}
+		{% set custom_title = site.name %}
 		{% set post_tags = '' %}
-	{% elseif wp_title %}
-		{{ wp_title|e('esc_html')|raw }}
-	{% else %}
-		{{ site.name }}
-	{% endif %}
-</title>
+{% elseif (post.title) %}
+	{% set custom_title = post.title %}
+{% elseif wp_title %}
+	set custom_title = wp_title|e('esc_html')|raw
+{% else %}
+	{% set custom_title = site.name %}
+{% endif %}
+
+<title>{{ custom_title }}</title>
