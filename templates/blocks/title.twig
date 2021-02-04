@@ -1,10 +1,10 @@
 {% if post.password_required %}
 		{% set custom_title = site.name %}
 		{% set post_tags = '' %}
+{% elseif wp_title %}
+	{% set custom_title = wp_title|e('esc_html')|raw  %}
 {% elseif (post.title) %}
 	{% set custom_title = post.title %}
-{% elseif wp_title %}
-	set custom_title = wp_title|e('esc_html')|raw
 {% else %}
 	{% set custom_title = site.name %}
 {% endif %}

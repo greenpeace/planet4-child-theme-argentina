@@ -1,4 +1,6 @@
-{% if (post.title) %}
+{% if wp_title %}
+	{% set custom_title = wp_title|e('esc_html')|raw  %}
+{% elseif (post.title) %}
 	{% set custom_title = post.title %}
 {% else %}
 	{% set custom_title = site.name %}
