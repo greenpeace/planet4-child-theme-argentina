@@ -2,9 +2,9 @@
 		{% set custom_title = site.name %}
 		{% set post_tags = '' %}
 {% elseif wp_title %}
-	{% set custom_title = wp_title|e('esc_html')|raw  %}
+	{% set custom_title = site.name~' | '~wp_title|e('esc_html')|raw  %}
 {% elseif (post.title) %}
-	{% set custom_title = post.title %}
+	{% set custom_title = site.name~' | '~post.title  %}
 {% else %}
 	{% set custom_title = site.name %}
 {% endif %}
