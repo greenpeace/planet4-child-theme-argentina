@@ -13,6 +13,5 @@ function enqueue_child_styles() {
 }
 
 add_action('wp_enqueue_scripts', function() {
-	wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/custom-popup.css');
 	wp_enqueue_script('custom', get_stylesheet_directory_uri().'/assets/src/js/custom-popup.js');
 });
